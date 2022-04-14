@@ -121,4 +121,22 @@ class TaskTest extends TestCase
 
         $response->assertStatus(404);
     }
+
+    public function test_delete_task()
+    {
+        $this->seed(TaskSeeder::class);
+
+        $task = Task::first();
+
+        $response = $this->delete('/api/tasks/' . $task->id);
+
+        $response->assertStatus(204);
+    }
+
+    public function test_delete_task_that_does_not_exist()
+    {
+        $response = $this->delete('/api/tasks/1');
+
+        $response->assertStatus(404);
+    }
 }
