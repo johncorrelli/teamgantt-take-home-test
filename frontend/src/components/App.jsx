@@ -54,16 +54,3 @@ export default function App() {
     </section>
   );
 }
-
-/**
-<div>
-      <h1>My Bookmarks App</h1>
-      <NewTaskForm onSubmit={actions.createTask} />
-      <br />
-      <TasksList
-        tasks={tasks}
-        onUpdate={actions.updateTask}
-        onDelete={actions.deleteTask}
-      />
-    </div>
- */

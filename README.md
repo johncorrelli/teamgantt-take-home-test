@@ -26,35 +26,57 @@ This sample repository saves you time by starting with a simple frontend and bac
     - [ ] id
     - [ ] name
     - [ ] avatar url
-- [ ] it should support assigning users to the existing tasks
+    - it's up to you how you get users into the database
+- [ ] it should support assigning users to the tasks
 
 ### frontend
 
 - [ ] it should support assigning users to tasks
-- [ ] it should show a user's avatar when they are assigned to a task
-- [ ] it should support updating task completion
+- [ ] it should show a user's avatar and name when they are assigned to a task
+- [ ] it should support updating the task's name
 
 ## Prerequisites for running
 
-- Docker installed.
-- PHP installed (to run `sail` commands).
+- [Docker](https://docs.docker.com/get-docker/) installed.
+- [PHP](https://www.php.net/manual/en/install.php) installed.
+  - We're using [Laravel Sail](https://laravel.com/docs/9.x/sail) for the backend framework.
+- [Node and NPM](https://nodejs.org/en/download/) installed.
 - You will need the following ports available:
-  - `8080` for the client
+  - `3000` for the client
   - `80` for the api
   - `3306` for the database
 
 ## Instructions
 
 1. Clone this repository.
-1. Setup a new private repository with the source code.
-1. Run `docker-compose up`.
-1. Install necessary dependencies in each directory.
-1. Run database migrations and seeders.
-1. Checkout a new branch.
-1. Code.
-1. Ensure all tests pass.
-1. Add commits for your changes and push up your new branch.
-1. Create a Pull Request when you are ready and reach out to us for setting up the next stage of the interview.
+2. Setup a new private repository with the source code.
+3. Run the following commands to get started:
+
+```
+// to run the backend
+cd backend
+cp .env.example .env
+composer install
+./vendor/bin/sail up -d
+./vendor/bin/sail artisan migrate
+
+// to run the frontend
+cd frontend
+npm install
+npm start
+```
+
+4. Checkout a new branch.
+5. Code.
+6. Ensure all tests pass.
+
+```
+cd backend
+./vendor/bin/sail phpunit
+```
+
+7. Add commits for your changes and push up your new branch.
+8. Create a Pull Request when you are ready and reach out to us for setting up the next stage of the interview.
 
 ## FAQ
 
