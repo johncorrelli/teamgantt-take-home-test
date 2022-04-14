@@ -83,7 +83,7 @@ class TaskController extends Controller
         ]);
 
         $task = Task::findOrFail($id);
-        $input = array_filter($request->only(['name', 'completed']));
+        $input = $request->collect()->filter(fn ($val) => $val !== null)->toArray();
         $task->fill($input);
         $task->save();
         
