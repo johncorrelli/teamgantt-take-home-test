@@ -56,7 +56,10 @@ export async function getTasks() {
 export async function createTask(task) {
   const response = await fetch('http://localhost/api/tasks', {
     method: 'POST',
-    body: JSON.stringify(task)
+    body: JSON.stringify(task),
+    headers: {
+      'content-type': 'application/json'
+    }
   });
 
   const result = await response.json();
@@ -64,12 +67,24 @@ export async function createTask(task) {
   return result.data;
 }
 
-export function updateTask(task) {
-  return Promise.resolve(task);
+export async function updateTask(task) {
+  const response = await fetch(`http://localhost/api/tasks/${task.id}`, {
+    method: 'PATCH',
+    body: JSON.stringify(task),
+    headers: {
+      'content-type': 'application/json'
+    }
+  });
+
+  const result = await response.json();
+
+  return result.data;
 }
 
 export function deleteTask(id) {
-  return Promise.resolve('true');
+  return fetch(`http://localhost/api/tasks/${id}`, {
+    method: 'DELETE'
+  });
 }
 
 // Helpers
