@@ -20,9 +20,9 @@ export default function useApi() {
     () => ({
       createTask: (task) => api.createTask(task).then(loadTasks),
       updateTask: (task) => api.updateTask(task).then(loadTasks),
-      deleteTask: (id) => api.deleteTask(id).then(loadTasks)
+      deleteTask: (id) => api.deleteTask(id).then(loadTasks),
     }),
-    []
+    [loadTasks]
   );
 
   return { tasks, users, actions };
