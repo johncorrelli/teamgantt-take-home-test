@@ -86,7 +86,7 @@ You will bring your solution to us and get the chance to walk through your decis
 
 Here are some of the things we are looking for in this evaluation:
 
-- **Code quality** - How you reason about making sure changes to the code is both readable and maintainable.
+- **Code quality** - How you reason about making sure changes to the code are both readable and maintainable.
 - **Testing** - How you reason about what needs testing and how to test it.
 - **System design** - How you reason about concepts like re-usability, separation of concerns, and various abstractions.
 - **Infrastructure and ops** - How you would run a system and what's important to think about?
