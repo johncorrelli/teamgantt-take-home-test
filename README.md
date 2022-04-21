@@ -4,7 +4,7 @@ Hey there!
 
 Thank you for taking the time to connect with us! If you've made it this far, we believe you could be a great fit here at TeamGantt! But before we get too much further we'd love to see your development chops!
 
-Our product is all about helping people plan and execute on their projects! Whether they work alone or on a team, TeamGantt is there to help them crush their deadlines! Delegating tasks is a useful strategy for a Project Manager to ensure tasks are resolved. In this task, you'll help our Product Manger Kelsey delegate tasks to members of the team.
+Our product is all about helping people plan and execute on their projects! Whether they work alone or on a team, TeamGantt is there to help them crush their deadlines! Delegating tasks is a useful strategy for a Project Manager to ensure tasks are resolved. In this task, you'll help our Product Manager Kelsey delegate tasks to members of the team.
 
 To help you get started, we have setup an application that has all you need. You'll have both a `frontend` and a `backend` directory to mimic both a backend database/api and front end react app. To complete the task, you'll need to complete work in both directories.
 
@@ -21,7 +21,7 @@ This sample repository saves you time by starting with a simple frontend and bac
 ### backend
 
 - [ ] it should add support for users
-  - you do not need to worry about login authentication for users. it is safe to assume to assume we are always logged in as Kelsey.
+  - you do not need to worry about login authentication for users. it is safe to assume we are always logged in as Kelsey.
   - users should have the following properties:
     - [ ] id
     - [ ] name
