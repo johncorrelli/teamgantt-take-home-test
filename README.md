@@ -90,6 +90,7 @@ Here are some of the things we are looking for in this evaluation:
 - **Testing** - How you reason about what needs testing and how to test it.
 - **System design** - How you reason about concepts like re-usability, separation of concerns, and various abstractions.
 - **Infrastructure and ops** - How you would run a system and what's important to think about?
+- **Git Commits** - Do you structure your commits in a way that helps others quickly understand the change?
 
 **Why did you pick this stack?**
 
