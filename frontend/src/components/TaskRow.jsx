@@ -1,30 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AssignUserDropdown from "./AssignUserDropdown";
+import useApi from "../hooks/use-api";
 
-export default function TaskRow({ task, users, onUpdate, onDelete }) {
-  const toggleCompleted = React.useCallback(() => {
-    onUpdate({ id: task.id, completed: !task.completed });
-  }, [onUpdate, task]);
-
-  const deleteTask = React.useCallback(() => {
-    onDelete(task.id);
-  }, [onDelete, task]);
-
-  const assignUser = React.useCallback(
-    (userId) => {
-      onUpdate({ id: task.id, assignedUserId: userId });
-    },
-    [onUpdate, task]
-  );
-
-  const user = users.find((x) => x.id === task.assignedUserId);
+export default function TaskRow({ task, users }) {
+  const { updateTask, deleteTask } = useApi();
 
   return (
     <tr className="fw-normal">
       <td className="align-middle">
         <input
           className="form-check-input"
-          onChange={toggleCompleted}
+          onChange={() =>
+            updateTask({ id: task.id, completed: !task.completed })
+          }
           type="checkbox"
           checked={task.completed}
           aria-label="..."
@@ -35,25 +23,18 @@ export default function TaskRow({ task, users, onUpdate, onDelete }) {
         {!task.completed && <span>{task.name}</span>}
       </td>
       <th>
-        {user && (
-          <>
-            <img
-              className="shadow-3 rounded-circle"
-              src={user.avatar}
-              alt={user.name}
-              style={{ width: "45px", height: "auto", objectFit: "cover" }}
-            />
-            <span className="ms-2">{user.name}</span>
-          </>
-        )}
-        {!task.assignedUserId && (
-          <AssignUserDropdown users={users} onSelect={assignUser} />
-        )}
+        <AssignUserDropdown
+          assignedUserId={task.assignedUserId}
+          users={users}
+          onSelect={(userId) =>
+            updateTask({ id: task.id, assignedUserId: userId })
+          }
+        />
       </th>
       <td className="align-middle">
         <a
           href="#!"
-          onClick={deleteTask}
+          onClick={() => deleteTask(task.id)}
           data-mdb-toggle="tooltip"
           title="Delete"
         >

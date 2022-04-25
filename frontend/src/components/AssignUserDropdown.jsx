@@ -1,6 +1,14 @@
 import React from "react";
+import User from "./User";
 
-export default function AssignUserDropdown({ users, onSelect }) {
+export default function AssignUserDropdown({
+  users,
+  onSelect,
+  assignedUserId
+}) {
+  const assignedUser =
+    assignedUserId && users.find((x) => x.id === assignedUserId);
+
   return (
     <div className="dropdown">
       <button
@@ -10,20 +18,33 @@ export default function AssignUserDropdown({ users, onSelect }) {
         data-mdb-toggle="dropdown"
         aria-expanded="false"
       >
-        Assign a user
+        {assignedUser ? (
+          <>
+            <User user={assignedUser} />
+          </>
+        ) : (
+          "Assign a user"
+        )}
       </button>
       <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
         {users.map((user) => (
-          <li>
+          <li key={user.id}>
             <a
               className="dropdown-item"
               href="#!"
               onClick={() => onSelect(user.id)}
             >
-              {user.name}
+              <User avatarSize="20" user={user} />
             </a>
           </li>
         ))}
+        {assignedUser && (
+          <li key="remove-assignment">
+            <a className="dropdown-item" href="#!" onClick={() => onSelect()}>
+              Remove assignment
+            </a>
+          </li>
+        )}
       </ul>
     </div>
   );
