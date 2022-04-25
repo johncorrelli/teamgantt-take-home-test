@@ -1,5 +1,6 @@
 import React from "react";
-import * as api from "../services/api";
+// TODO: Swap this out for 'remote-api' when hooking up to a server.
+import * as api from "../services/memory-api";
 
 /**
  * A minimal state management and remote persistence abstraction.
