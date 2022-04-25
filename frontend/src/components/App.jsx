@@ -4,7 +4,7 @@ import TaskRow from "./TaskRow";
 import useApi from "../hooks/use-api";
 
 export default function App() {
-  const { tasks, users } = useApi();
+  const { tasks, users, createTask, updateTask, deleteTask } = useApi();
 
   return (
     <section className="vh-100" style={{ backgroundColor: "#eee" }}>
@@ -20,7 +20,7 @@ export default function App() {
                     height="40"
                   />
                   <h2 className="my-4">My Team's Tasks</h2>
-                  <NewTaskForm />
+                  <NewTaskForm onCreate={createTask} />
                 </div>
 
                 <table className="table mb-0">
@@ -36,7 +36,13 @@ export default function App() {
                   </thead>
                   <tbody>
                     {tasks.map((task) => (
-                      <TaskRow key={task.id} task={task} users={users} />
+                      <TaskRow
+                        key={task.id}
+                        task={task}
+                        users={users}
+                        onUpdate={updateTask}
+                        onDelete={deleteTask}
+                      />
                     ))}
                   </tbody>
                 </table>

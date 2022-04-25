@@ -20,8 +20,8 @@ export default function useApi() {
     api.getTasks().then(setTasks);
   }, []);
 
-  React.useEffect(loadUsers, [loadUsers]);
-  React.useEffect(loadTasks, [loadTasks]);
+  React.useEffect(loadUsers, []);
+  React.useEffect(loadTasks, []);
 
   const actions = React.useMemo(
     () => ({
@@ -29,7 +29,7 @@ export default function useApi() {
       updateTask: (task) => api.updateTask(task).then(loadTasks),
       deleteTask: (id) => api.deleteTask(id).then(loadTasks),
     }),
-    []
+    [loadTasks]
   );
 
   return {

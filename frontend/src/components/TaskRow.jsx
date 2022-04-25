@@ -1,18 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import AssignUserDropdown from "./AssignUserDropdown";
-import useApi from "../hooks/use-api";
 
-export default function TaskRow({ task, users }) {
-  const { updateTask, deleteTask } = useApi();
-
+export default function TaskRow({ task, users, onUpdate, onDelete }) {
   return (
     <tr className="fw-normal">
       <td className="align-middle">
         <input
           className="form-check-input"
-          onChange={() =>
-            updateTask({ id: task.id, completed: !task.completed })
-          }
+          onChange={() => onUpdate({ id: task.id, completed: !task.completed })}
           type="checkbox"
           checked={task.completed}
           aria-label="..."
@@ -27,14 +22,14 @@ export default function TaskRow({ task, users }) {
           assignedUserId={task.assignedUserId}
           users={users}
           onSelect={(userId) =>
-            updateTask({ id: task.id, assignedUserId: userId })
+            onUpdate({ id: task.id, assignedUserId: userId })
           }
         />
       </th>
       <td className="align-middle">
         <a
           href="#!"
-          onClick={() => deleteTask(task.id)}
+          onClick={() => onDelete(task.id)}
           data-mdb-toggle="tooltip"
           title="Delete"
         >

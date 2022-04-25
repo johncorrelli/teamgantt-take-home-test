@@ -1,8 +1,6 @@
 import React from "react";
-import useApi from "../hooks/use-api";
 
-export default function NewTaskForm({ onSubmit }) {
-  const { createTask } = useApi();
+export default function NewTaskForm({ onCreate }) {
   const [name, setName] = React.useState("");
   const formOutlineRef = React.createRef();
 
@@ -15,7 +13,7 @@ export default function NewTaskForm({ onSubmit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createTask({ name, completed: false });
+    onCreate({ name, completed: false });
     setName("");
   };
 
