@@ -33,8 +33,9 @@ This sample repository saves you time by starting with a simple frontend and bac
 ### Frontend
 
 - [ ] It should support updating an existing task's name.
-- [ ] It should connect to the backend.
-  - See the TODO at the top of [frontend/src/hooks/use-api.js](frontend/src/hooks/use-api.js).
+- [ ] It should support task assignment.
+  - This does not require frontend changes if the API endpoint matches what the frontend expects.
+  - See [frontend/src/services/remote-api.js](frontend/src/services/remote-api.js).
 
 ## Prerequisites for running
 
