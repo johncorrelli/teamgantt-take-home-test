@@ -16,29 +16,30 @@ One thing TeamGantt believes in is a true work/life balance. We not only say it,
 
 Defined below are the requirements for your project. This will serve as a good basis to show your problem solving skills as it relates to the domain of project management.
 
-This sample repository saves you time by starting with a simple frontend and backend. You will need to extend the entire app to support:
+This sample repository saves you time by starting with a simple frontend and backend. You will need to extend the app to support:
 
-### backend
+### Backend
 
-- [ ] it should add support for users
-  - you do not need to worry about login authentication for users. it is safe to assume we are always logged in as Kelsey.
-  - users should have the following properties:
+- [ ] It should support storing and fetching users (just `GET /users`)
+  - This isn't for authentication - these are just to support task assignment.
+  - Users should have the following properties:
     - [ ] id
     - [ ] name
-    - [ ] avatar url
-    - it's up to you how you get users into the database
-- [ ] it should support assigning users to the tasks
+    - [ ] avatar (url)
+- [ ] It should support assigning existing users to a task.
+- [ ] It should support unassigning a user from a task.
+- [ ] It should support partial updates (i.e. frontend updating just the task name).
 
-### frontend
+### Frontend
 
-- [ ] it should support assigning users to tasks
-- [ ] it should show a user's avatar and name when they are assigned to a task
-- [ ] it should support updating the task's name
+- [ ] It should support updating an existing task's name.
+- [ ] It should connect to the backend.
+  - See the TODO at the top of [frontend/src/hooks/use-api.js](frontend/src/hooks/use-api.js).
 
 ## Prerequisites for running
 
 - [Docker](https://docs.docker.com/get-docker/) installed.
-- [PHP](https://www.php.net/manual/en/install.php) installed.
+- [PHP 8.1](https://www.php.net/manual/en/install.php) installed.
   - We're using [Laravel Sail](https://laravel.com/docs/9.x/sail) for the backend framework.
 - [Node and NPM](https://nodejs.org/en/download/) installed.
 - You will need the following ports available:
@@ -52,15 +53,15 @@ This sample repository saves you time by starting with a simple frontend and bac
 2. Setup a new private repository with the source code.
 3. Run the following commands to get started:
 
-```
-// to run the backend
+```sh
+# to run the backend
 cd backend
 cp .env.example .env
 composer install
 ./vendor/bin/sail up -d
 ./vendor/bin/sail artisan migrate
 
-// to run the frontend
+# to run the frontend
 cd frontend
 npm install
 npm start
@@ -70,7 +71,7 @@ npm start
 5. Code.
 6. Ensure all tests pass.
 
-```
+```sh
 cd backend
 ./vendor/bin/sail phpunit
 ```
@@ -90,6 +91,7 @@ Here are some of the things we are looking for in this evaluation:
 - **Testing** - How you reason about what needs testing and how to test it.
 - **System design** - How you reason about concepts like re-usability, separation of concerns, and various abstractions.
 - **Infrastructure and ops** - How you would run a system and what's important to think about?
+- **Git Commits** - Do you structure your commits in a way that helps others quickly understand the change?
 
 **Why did you pick this stack?**
 
