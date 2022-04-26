@@ -23,5 +23,5 @@ export async function updateTask(task) {
 }
 
 export function deleteTask(id) {
-  return axios.delete(`http://localhost/api/tasks/${id}`);
+  return axios.delete(`${API_URL}/tasks/${id}`);
 }
