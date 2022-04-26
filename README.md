@@ -41,6 +41,11 @@ This sample repository saves you time by starting with a simple frontend and bac
 - [Docker](https://docs.docker.com/get-docker/) installed.
 - [PHP 8.1](https://www.php.net/manual/en/install.php) installed.
   - We're using [Laravel Sail](https://laravel.com/docs/9.x/sail) for the backend framework.
+  - If you have issues with `composer install`, ensure that the following libraries are installed:
+    - php8.1-cli
+    - php8.1-common
+    - php8.1-dom
+    - php8.1-curl
 - [Node and NPM](https://nodejs.org/en/download/) installed.
 - You will need the following ports available:
   - `3000` for the client
